@@ -1,0 +1,2595 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#F1F5F9" />
+    <title>Tandem — Plan trips together</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="toast">
+      <span class="dot"></span><span id="toast-text">Saved</span>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SCREEN 1 — LANDING -->
+    <!-- ============================================================ -->
+    <section class="screen active" id="screen-landing">
+      <div class="topnav wrap">
+        <div class="logo">
+          <div class="logo-mark">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+          Tandem
+        </div>
+        <div class="navlinks">
+          <a href="javascript:void(0)" onclick="scrollToSection('features')"
+            >Product</a
+          >
+          <a href="javascript:void(0)" onclick="scrollToSection('how-it-works')"
+            >How it works</a
+          >
+          <a href="javascript:void(0)" onclick="scrollToSection('testimonials')"
+            >Inspiration</a
+          >
+          <a href="javascript:void(0)" onclick="scrollToSection('pricing')"
+            >Pricing</a
+          >
+        </div>
+        <div class="nav-actions">
+          <button class="btn btn-ghost nav-login" onclick="openAuth('login')">
+            Log in
+          </button>
+          <button class="btn btn-primary btn-sm" onclick="openAuth('signup')">
+            Start planning
+          </button>
+          <button
+            class="menu-btn"
+            id="menuBtn"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobileMenu"
+            onclick="toggleMobileMenu()"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.2"
+              stroke-linecap="round"
+            >
+              <path class="menu-open" d="M4 7h16M4 12h16M4 17h16" />
+              <path class="menu-close" d="M6 6l12 12M18 6L6 18" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <nav class="mobile-menu" id="mobileMenu" aria-label="Site">
+        <a href="javascript:void(0)" onclick="scrollToSection('features')">Product</a>
+        <a href="javascript:void(0)" onclick="scrollToSection('how-it-works')">How it works</a>
+        <a href="javascript:void(0)" onclick="scrollToSection('testimonials')">Inspiration</a>
+        <a href="javascript:void(0)" onclick="scrollToSection('pricing')">Pricing</a>
+        <a href="javascript:void(0)" onclick="openAuth('login')">Log in</a>
+      </nav>
+
+      <div class="hero wrap">
+        <div class="hero-grid">
+          <div>
+            <span class="pin-badge">
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+              >
+                <path d="M12 21s-7-6.5-7-11a7 7 0 1 1 14 0c0 4.5-7 11-7 11z" />
+                <circle cx="12" cy="10" r="2.5" />
+              </svg>
+              For friends, families &amp; small crews
+            </span>
+            <h1 style="margin-top: 18px">
+              Plan trips together<br />without the chaos.
+            </h1>
+            <p class="lead">
+              Pins, routes, day plans, and bookings in one playful space — so
+              the group chat can go back to sending memes.
+            </p>
+            <div class="hero-ctas">
+              <button class="btn btn-primary" onclick="openAuth('signup')">
+                Start planning
+              </button>
+              <button class="btn btn-secondary" onclick="openModal('demo')">
+                Watch demo
+              </button>
+            </div>
+          </div>
+          <div class="hero-art">
+            <div class="hero-blob"></div>
+            <div class="sticker-card sticker-1">
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  margin-bottom: 10px;
+                "
+              >
+                <strong
+                  style="font-family: &quot;Poppins&quot;; font-size: 14px"
+                  >Day 2 — Gulmarg</strong
+                >
+                <span style="font-size: 11px; color: var(--slate)">2h 10m</span>
+              </div>
+              <div
+                style="
+                  display: flex;
+                  gap: 8px;
+                  align-items: center;
+                  padding: 8px;
+                  background: var(--cloud);
+                  border-radius: 10px;
+                  margin-bottom: 6px;
+                "
+              >
+                <div
+                  style="
+                    width: 26px;
+                    height: 26px;
+                    border-radius: 7px;
+                    background: var(--secondary);
+                  "
+                ></div>
+                <span style="font-size: 12.5px; font-weight: 600"
+                  >Gondola Phase 1</span
+                >
+              </div>
+              <div
+                style="
+                  display: flex;
+                  gap: 8px;
+                  align-items: center;
+                  padding: 8px;
+                  background: var(--cloud);
+                  border-radius: 10px;
+                "
+              >
+                <div
+                  style="
+                    width: 26px;
+                    height: 26px;
+                    border-radius: 7px;
+                    background: var(--accent2);
+                  "
+                ></div>
+                <span style="font-size: 12.5px; font-weight: 600"
+                  >Viewpoint lunch</span
+                >
+              </div>
+            </div>
+            <div class="sticker-card sticker-2">
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 8px;
+                  margin-bottom: 10px;
+                "
+              >
+                <div
+                  class="avatar"
+                  style="
+                    background: var(--accent1);
+                    width: 28px;
+                    height: 28px;
+                    font-size: 11px;
+                  "
+                >
+                  RA
+                </div>
+                <span style="font-size: 12.5px; font-weight: 600"
+                  >Riya voted
+                  <span style="color: var(--secondary)">Must-do</span></span
+                >
+              </div>
+              <strong style="font-family: &quot;Poppins&quot;; font-size: 14px"
+                >Gulmarg Gondola</strong
+              >
+              <div style="display: flex; gap: 6px; margin-top: 10px">
+                <span
+                  class="mini-tag"
+                  style="background: #e8fbf9; color: var(--secondary)"
+                  >Want · 12</span
+                >
+                <span class="mini-tag">Must-do · 7</span>
+              </div>
+            </div>
+            <div class="sticker-3">
+              <strong style="font-family: &quot;Poppins&quot;; font-size: 13px"
+                >✨ Top pick</strong
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="steps-row" id="how-it-works">
+          <div class="step-item">
+            <div class="step-num">1</div>
+            <h4>Chat</h4>
+            <p>Tell Tandem the vibe you're after.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-num">2</div>
+            <h4>Save</h4>
+            <p>Collect places from the map as you go.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-num">3</div>
+            <h4>Build days</h4>
+            <p>Drag saves into a day-by-day timeline.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-num">4</div>
+            <h4>Share &amp; go</h4>
+            <p>Send one link — everyone's in sync.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-pad" style="background: var(--white)" id="features">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>Everything a trip needs, nothing it doesn't.</h2>
+            <p>
+              Four tools that cover the whole arc — from the first idea to the
+              last receipt.
+            </p>
+          </div>
+          <div class="feature-grid">
+            <div class="card feature-card">
+              <div class="feature-icon" style="background: #eef1ff">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="var(--primary)"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M12 21s-7-6.5-7-11a7 7 0 1 1 14 0c0 4.5-7 11-7 11z"
+                  />
+                  <circle cx="12" cy="10" r="2.5" />
+                </svg>
+              </div>
+              <h4>Map-first planning</h4>
+              <p>Search, save and see everything on one live map.</p>
+            </div>
+            <div class="card feature-card">
+              <div class="feature-icon" style="background: #e8fbf9">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="var(--secondary)"
+                  stroke-width="2"
+                >
+                  <rect x="3" y="4" width="18" height="17" rx="3" />
+                  <path d="M3 9h18M8 3v3M16 3v3" />
+                </svg>
+              </div>
+              <h4>Drag &amp; drop itinerary</h4>
+              <p>Snap saved places straight into a day timeline.</p>
+            </div>
+            <div class="card feature-card">
+              <div class="feature-icon" style="background: #fff1f1">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="var(--accent1)"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M21 11.5a8.5 8.5 0 0 1-11.8 7.8L3 21l1.7-6.2A8.5 8.5 0 1 1 21 11.5z"
+                  />
+                </svg>
+              </div>
+              <h4>Crew chat + votes</h4>
+              <p>Settle "gondola day or café day" in one thread.</p>
+            </div>
+            <div class="card feature-card">
+              <div class="feature-icon" style="background: #fff9e8">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="var(--accent2)"
+                  stroke-width="2"
+                >
+                  <path d="M4 4h16v16H4z" />
+                  <path d="M4 9h16M9 4v16" />
+                </svg>
+              </div>
+              <h4>Bookings wallet</h4>
+              <p>Every confirmation, one tap away for the whole crew.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-pad" style="background: var(--white)" id="pricing">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>Pick a plan for your crew</h2>
+            <p>
+              Every plan includes unlimited trips — the difference is how many
+              people can join one.
+            </p>
+          </div>
+          <div class="pricing-grid">
+            <div class="card price-card">
+              <h4 style="font-size: 16px">Solo</h4>
+              <div class="price-num">Free</div>
+              <p style="font-size: 13px; color: var(--slate)">
+                For planning on your own
+              </p>
+              <div class="price-feat">✓ Unlimited saved places</div>
+              <div class="price-feat">✓ 1 traveler per trip</div>
+              <div class="price-feat">✓ Map &amp; itinerary builder</div>
+              <button
+                class="btn btn-secondary"
+                style="width: 100%; justify-content: center; margin-top: 16px"
+                onclick="openAuth('signup')"
+              >
+                Start free
+              </button>
+            </div>
+            <div class="card price-card featured">
+              <span class="price-tag">Most popular</span>
+              <h4 style="font-size: 16px">Crew</h4>
+              <div class="price-num">₹299<span>/trip</span></div>
+              <p style="font-size: 13px; color: var(--slate)">
+                For groups planning together
+              </p>
+              <div class="price-feat">✓ Up to 10 travelers</div>
+              <div class="price-feat">✓ Crew chat &amp; voting</div>
+              <div class="price-feat">✓ Bookings wallet</div>
+              <button
+                class="btn btn-primary"
+                style="width: 100%; justify-content: center; margin-top: 16px"
+                onclick="openAuth('signup')"
+              >
+                Start planning
+              </button>
+            </div>
+            <div class="card price-card">
+              <h4 style="font-size: 16px">Family</h4>
+              <div class="price-num">₹799<span>/year</span></div>
+              <p style="font-size: 13px; color: var(--slate)">
+                Unlimited trips, all year
+              </p>
+              <div class="price-feat">✓ Everything in Crew</div>
+              <div class="price-feat">✓ Unlimited trips</div>
+              <div class="price-feat">✓ Priority support</div>
+              <button
+                class="btn btn-secondary"
+                style="width: 100%; justify-content: center; margin-top: 16px"
+                onclick="openAuth('signup')"
+              >
+                Start free
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-pad" id="testimonials">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>Loved by planners &amp; the whole crew</h2>
+          </div>
+          <div class="testimonial-row">
+            <div class="card testimonial">
+              <p class="quote">
+                The itinerary board is the first tool my group has actually used
+                past day one of a trip.
+              </p>
+              <div class="t-person">
+                <div class="avatar" style="background: var(--primary)">NM</div>
+                <span>Nisha M. — Planner</span>
+              </div>
+            </div>
+            <div class="card testimonial">
+              <p class="quote">
+                Voting on places killed our 200-message group chat about where
+                to eat.
+              </p>
+              <div class="t-person">
+                <div class="avatar" style="background: var(--accent1)">DK</div>
+                <span>Devan K. — Contributor</span>
+              </div>
+            </div>
+            <div class="card testimonial">
+              <p class="quote">
+                Uploading boarding passes into one place saved us at check-in,
+                twice.
+              </p>
+              <div class="t-person">
+                <div class="avatar" style="background: var(--secondary)">
+                  AS
+                </div>
+                <span>Ana S. — Planner</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="wrap footer-row">
+          <div class="logo" style="font-size: 16px">
+            <div class="logo-mark" style="width: 24px; height: 24px">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z"
+                  fill="white"
+                />
+              </svg>
+            </div>
+            Tandem
+          </div>
+          <div class="footer-links">
+            <a href="javascript:void(0)" onclick="openStatic('about')">About</a>
+            <a href="javascript:void(0)" onclick="openStatic('privacy')"
+              >Privacy</a
+            >
+            <a href="javascript:void(0)" onclick="openStatic('terms')">Terms</a>
+            <a href="javascript:void(0)" onclick="openStatic('contact')"
+              >Contact</a
+            >
+          </div>
+        </div>
+      </footer>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SCREEN 2 — CREATE TRIP WIZARD -->
+    <!-- ============================================================ -->
+    <section class="screen" id="screen-createtrip">
+      <div class="wizard-shell">
+        <div class="topnav wrap" style="padding-bottom: 0">
+          <div class="logo">
+            <div class="logo-mark">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z"
+                  fill="white"
+                />
+              </svg>
+            </div>
+            Tandem
+          </div>
+          <button class="btn btn-ghost" onclick="showScreen('landing')">
+            Save &amp; exit
+          </button>
+        </div>
+
+        <div class="wizard-body">
+          <div class="card wizard-card">
+            <div class="stepper">
+              <div class="dot now" id="wdot-1">1</div>
+              <div class="seg" id="wseg-1"></div>
+              <div class="dot" id="wdot-2">2</div>
+              <div class="seg" id="wseg-2"></div>
+              <div class="dot" id="wdot-3">3</div>
+              <div class="seg" id="wseg-3"></div>
+              <div class="dot" id="wdot-4">4</div>
+            </div>
+            <div class="step-labels">
+              <span>Destination</span><span>Dates</span><span>Travelers</span
+              ><span>Preferences</span>
+            </div>
+            <div style="height: 26px"></div>
+
+            <!-- step 1 -->
+            <div class="wiz-step active" id="wstep-1">
+              <h3>Where are you headed?</h3>
+              <p class="help">
+                We'll pull recommendations and a starter map for this spot.
+              </p>
+              <label class="field-label">Destination</label>
+              <input class="field-input" value="Kashmir" readonly />
+              <label class="field-label">Popular right now</label>
+              <div class="chip-row">
+                <span class="chip active">Srinagar</span>
+                <span class="chip active">Gulmarg</span>
+                <span class="chip active">Pahalgam</span>
+                <span class="chip">Sonmarg</span>
+              </div>
+            </div>
+
+            <!-- step 2 -->
+            <div class="wiz-step" id="wstep-2">
+              <h3>When are you going?</h3>
+              <p class="help">
+                Tandem checks weather and crowd patterns for these dates.
+              </p>
+              <div style="display: flex; gap: 14px">
+                <div style="flex: 1">
+                  <label class="field-label">Start date</label>
+                  <input class="field-input" value="14 Oct 2026" readonly />
+                </div>
+                <div style="flex: 1">
+                  <label class="field-label">End date</label>
+                  <input class="field-input" value="16 Oct 2026" readonly />
+                </div>
+              </div>
+              <div class="chip-row">
+                <span class="chip active">3-day trip</span>
+              </div>
+            </div>
+
+            <!-- step 3 -->
+            <div class="wiz-step" id="wstep-3">
+              <h3>Who's coming?</h3>
+              <p class="help">
+                Add the crew now, or invite them once the trip is created.
+              </p>
+              <div class="traveler-row">
+                <div class="stepper-count">
+                  <button onclick="adjustTravelers(-1)">–</button>
+                  <span
+                    id="travelerCount"
+                    style="
+                      font-family: &quot;Poppins&quot;;
+                      font-weight: 700;
+                      font-size: 16px;
+                    "
+                    >4</span
+                  >
+                  <button onclick="adjustTravelers(1)">+</button>
+                </div>
+                <div class="avatar-stack">
+                  <div class="avatar" style="background: var(--primary)">
+                    YOU
+                  </div>
+                  <div class="avatar" style="background: var(--accent1)">
+                    RA
+                  </div>
+                  <div class="avatar" style="background: var(--secondary)">
+                    NM
+                  </div>
+                  <div
+                    class="avatar"
+                    style="background: var(--accent2); color: var(--ink)"
+                  >
+                    DK
+                  </div>
+                </div>
+              </div>
+              <label class="field-label">Invite by email</label>
+              <input class="field-input" placeholder="name@email.com" />
+            </div>
+
+            <!-- step 4 -->
+            <div class="wiz-step" id="wstep-4">
+              <h3>Set the pace</h3>
+              <p class="help">
+                This shapes how full your daily itinerary starts out.
+              </p>
+              <label class="field-label">Trip vibe</label>
+              <div class="chip-row">
+                <span class="chip active">Scenic</span>
+                <span class="chip active">Relaxed</span>
+                <span class="chip">Food</span>
+                <span class="chip">Adventure</span>
+                <span class="chip">Culture</span>
+              </div>
+              <div class="slider-block">
+                <label class="field-label">Budget</label>
+                <input type="range" min="1" max="4" value="2" />
+                <div class="slider-ends">
+                  <span>Backpacker</span><span>Luxury</span>
+                </div>
+              </div>
+              <div class="slider-block">
+                <label class="field-label">Day pace</label>
+                <input type="range" min="1" max="4" value="2" />
+                <div class="slider-ends">
+                  <span>Chill</span><span>Packed</span>
+                </div>
+              </div>
+              <div class="toggle-row">
+                <span style="font-size: 14px; font-weight: 500"
+                  >Avoid long drives</span
+                >
+                <div class="toggle on"></div>
+              </div>
+              <div class="toggle-row">
+                <span style="font-size: 14px; font-weight: 500"
+                  >Prefer vegetarian options</span
+                >
+                <div class="toggle"></div>
+              </div>
+            </div>
+
+            <div class="wiz-nav">
+              <button
+                class="btn btn-ghost"
+                id="wizBackBtn"
+                style="visibility: hidden"
+                onclick="wizardBack()"
+              >
+                Back
+              </button>
+              <button
+                class="btn btn-primary"
+                id="wizNextBtn"
+                onclick="wizardNext()"
+              >
+                Continue
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SCREEN 3 — TRIP DASHBOARD -->
+    <!-- ============================================================ -->
+    <section class="screen" id="screen-dashboard">
+      <div class="dash-cover">
+        <div class="dash-cover-inner wrap">
+          <div class="dash-top-row">
+            <button class="backlink" onclick="showScreen('landing')">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                stroke-width="2.4"
+              >
+                <path d="M15 18l-6-6 6-6" />
+              </svg>
+              All trips
+            </button>
+            <div class="cta-row">
+              <button
+                class="btn btn-secondary btn-sm"
+                onclick="openModal('invite')"
+              >
+                Invite crew
+              </button>
+              <button class="btn btn-secondary btn-sm" onclick="exportPdf()">
+                Export PDF
+              </button>
+              <button class="btn btn-coral btn-sm" onclick="openModal('share')">
+                Share link
+              </button>
+            </div>
+          </div>
+          <div class="trip-title-block">
+            <h1>Kashmir in 3 Days ✨</h1>
+            <div class="trip-meta">
+              14–16 Oct · Srinagar → Gulmarg → Pahalgam · 4 travelers
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dash-tabs">
+        <button class="active">Overview</button>
+        <button onclick="showScreen('explore')">Explore</button>
+        <button onclick="showScreen('itinerary')">Itinerary</button>
+        <button onclick="showScreen('collections')">Collections</button>
+        <button onclick="showScreen('crew')">Crew</button>
+        <button onclick="showScreen('bookings')">Bookings</button>
+      </div>
+
+      <div class="dash-body wrap">
+        <div class="dash-grid">
+          <div>
+            <div class="stat-row">
+              <div class="card stat-card">
+                <div class="num">18</div>
+                <div class="lbl">Saved places</div>
+              </div>
+              <div class="card stat-card">
+                <div class="num">12</div>
+                <div class="lbl">Planned stops</div>
+              </div>
+              <div class="card stat-card">
+                <div class="num">3</div>
+                <div class="lbl">Bookings added</div>
+              </div>
+            </div>
+            <div class="card focus-card">
+              <div class="focus-icon">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="var(--ink)"
+                  stroke-width="2"
+                >
+                  <rect x="3" y="4" width="18" height="17" rx="3" />
+                  <path d="M3 9h18M8 3v3M16 3v3" />
+                </svg>
+              </div>
+              <div style="flex: 1">
+                <h4 style="font-size: 15px; margin-bottom: 3px">
+                  Today's focus
+                </h4>
+                <p style="font-size: 13.5px; color: var(--slate)">
+                  Finish Day 2 — Gulmarg still has an open afternoon slot.
+                </p>
+              </div>
+              <button
+                class="btn btn-primary btn-sm"
+                onclick="showScreen('itinerary')"
+              >
+                Open
+              </button>
+            </div>
+
+            <div class="card crew-card">
+              <h4 style="font-size: 15px">Crew activity</h4>
+              <div class="crew-list">
+                <div class="avatar" style="background: var(--primary)">YOU</div>
+                <div class="avatar" style="background: var(--accent1)">RA</div>
+                <div class="avatar" style="background: var(--secondary)">
+                  NM
+                </div>
+                <div
+                  class="avatar"
+                  style="background: var(--accent2); color: var(--ink)"
+                >
+                  DK
+                </div>
+              </div>
+              <p style="font-size: 13px; color: var(--slate)">
+                Riya voted <strong style="color: var(--ink)">Must-do</strong> on
+                Gulmarg Gondola · 4 new saves this week
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <div class="card weather-card">
+              <h4 style="font-size: 15px">Weather preview</h4>
+              <div class="weather-row">
+                <div class="weather-day">
+                  <div class="d">Wed 14</div>
+                  <svg
+                    width="26"
+                    height="26"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="var(--accent2)"
+                    stroke-width="2"
+                  >
+                    <circle cx="12" cy="12" r="5" />
+                  </svg>
+                  <div class="t">18°</div>
+                </div>
+                <div class="weather-day">
+                  <div class="d">Thu 15</div>
+                  <svg
+                    width="26"
+                    height="26"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="var(--slate-light)"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M6 17a4 4 0 1 1 1-8 5 5 0 0 1 9.6 1.5A3.5 3.5 0 0 1 16 17z"
+                    />
+                  </svg>
+                  <div class="t">11°</div>
+                </div>
+                <div class="weather-day">
+                  <div class="d">Fri 16</div>
+                  <svg
+                    width="26"
+                    height="26"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="var(--primary)"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M6 17a4 4 0 1 1 1-8 5 5 0 0 1 9.6 1.5A3.5 3.5 0 0 1 16 17z"
+                    />
+                    <path d="M8 21l1-2M12 21l1-2M16 21l1-2" />
+                  </svg>
+                  <div class="t">9°</div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="card"
+              style="padding: 22px; margin-top: 22px; cursor: pointer"
+              onclick="showScreen('collections')"
+            >
+              <h4 style="font-size: 15px; margin-bottom: 14px">Collections</h4>
+              <div
+                style="
+                  display: flex;
+                  gap: 10px;
+                  align-items: center;
+                  padding: 10px;
+                  background: var(--cloud);
+                  border-radius: 12px;
+                  margin-bottom: 8px;
+                "
+              >
+                <div
+                  style="
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 9px;
+                    background: var(--accent1);
+                  "
+                ></div>
+                <span style="font-size: 13.5px; font-weight: 600"
+                  >Kashmir Must-dos · 9 saved</span
+                >
+              </div>
+              <div
+                style="
+                  display: flex;
+                  gap: 10px;
+                  align-items: center;
+                  padding: 10px;
+                  background: var(--cloud);
+                  border-radius: 12px;
+                "
+              >
+                <div
+                  style="
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 9px;
+                    background: var(--secondary);
+                  "
+                ></div>
+                <span style="font-size: 13.5px; font-weight: 600"
+                  >Food to try · 6 saved</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SCREEN 4 — EXPLORE -->
+    <!-- ============================================================ -->
+    <section class="screen" id="screen-explore">
+      <div class="explore-shell">
+        <div class="explore-left">
+          <div class="explore-topbar">
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin-bottom: 14px;
+              "
+            >
+              <button
+                class="backlink"
+                style="color: var(--slate)"
+                onclick="showScreen('dashboard')"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="var(--slate)"
+                  stroke-width="2.4"
+                >
+                  <path d="M15 18l-6-6 6-6" />
+                </svg>
+              </button>
+              <strong style="font-family: &quot;Poppins&quot;; font-size: 15px"
+                >Explore Kashmir</strong
+              >
+            </div>
+            <div class="searchbar">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--slate)"
+                stroke-width="2.2"
+              >
+                <circle cx="11" cy="11" r="7" />
+                <path d="m21 21-4.35-4.35" />
+              </svg>
+              <input placeholder="Search Srinagar cafes, viewpoints…" />
+            </div>
+          </div>
+          <div class="filter-chips">
+            <span class="chip active" onclick="toggleChip(this)">Must-see</span>
+            <span class="chip" onclick="toggleChip(this)">Scenic</span>
+            <span class="chip" onclick="toggleChip(this)">Food</span>
+            <span class="chip" onclick="toggleChip(this)">Lakes</span>
+            <span class="chip" onclick="toggleChip(this)">Gondola</span>
+            <span class="chip" onclick="toggleChip(this)">Family</span>
+            <span class="chip" onclick="toggleChip(this)">Budget</span>
+          </div>
+          <div class="results-list" id="resultsList">
+            <!-- generated by JS -->
+          </div>
+        </div>
+
+        <div class="explore-map" id="exploreMap">
+          <div
+            class="map-road"
+            style="
+              width: 340px;
+              height: 10px;
+              top: 170px;
+              left: -20px;
+              transform: rotate(-8deg);
+            "
+          ></div>
+          <div
+            class="map-road"
+            style="
+              width: 220px;
+              height: 8px;
+              top: 320px;
+              left: 120px;
+              transform: rotate(20deg);
+            "
+          ></div>
+          <div
+            class="map-road"
+            style="
+              width: 8px;
+              height: 260px;
+              top: 60px;
+              left: 400px;
+              transform: rotate(10deg);
+            "
+          ></div>
+
+          <div
+            class="pin"
+            id="pin-1"
+            style="top: 150px; left: 260px"
+            onclick="openPopover(1)"
+          >
+            <span>1</span>
+          </div>
+          <div
+            class="pin saved"
+            id="pin-2"
+            style="top: 230px; left: 420px; animation-delay: 0.08s"
+            onclick="openPopover(2)"
+          >
+            <span>2</span>
+          </div>
+          <div
+            class="pin"
+            id="pin-3"
+            style="top: 340px; left: 180px; animation-delay: 0.16s"
+            onclick="openPopover(3)"
+          >
+            <span>3</span>
+          </div>
+          <div
+            class="pin saved"
+            id="pin-4"
+            style="top: 120px; left: 520px; animation-delay: 0.24s"
+            onclick="openPopover(4)"
+          >
+            <span>4</span>
+          </div>
+          <div
+            class="pin"
+            id="pin-5"
+            style="top: 280px; left: 560px; animation-delay: 0.32s"
+            onclick="openPopover(5)"
+          >
+            <span>5</span>
+          </div>
+
+          <div class="map-popover" id="mapPopover">
+            <h4 id="popTitle">Dal Lake Shikara Ride</h4>
+            <p id="popMeta">4.8 ★ · Scenic · Lakes</p>
+            <button
+              class="btn btn-primary btn-sm"
+              style="width: 100%; justify-content: center; margin-bottom: 8px"
+              onclick="viewDetailsFromPopover()"
+            >
+              View details
+            </button>
+            <button
+              class="btn btn-secondary btn-sm"
+              style="width: 100%; justify-content: center"
+              onclick="quickSaveFromPopover()"
+            >
+              Save to collection
+            </button>
+          </div>
+
+          <div class="map-legend">
+            <span
+              ><span
+                class="legend-dot"
+                style="background: var(--primary)"
+              ></span
+              >Recommended</span
+            >
+            <span
+              ><span
+                class="legend-dot"
+                style="background: var(--accent1)"
+              ></span
+              >Saved</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SCREEN 5 — ITINERARY BUILDER -->
+    <!-- ============================================================ -->
+    <section class="screen" id="screen-itinerary">
+      <div class="itin-shell">
+        <div class="itin-topbar">
+          <div style="display: flex; align-items: center; gap: 12px">
+            <button
+              class="backlink"
+              style="color: var(--slate)"
+              onclick="showScreen('dashboard')"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--slate)"
+                stroke-width="2.4"
+              >
+                <path d="M15 18l-6-6 6-6" />
+              </svg>
+            </button>
+            <strong style="font-family: &quot;Poppins&quot;; font-size: 16px"
+              >Kashmir in 3 Days ✨</strong
+            >
+          </div>
+          <div class="route-summary">
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="var(--primary)"
+              stroke-width="2.4"
+            >
+              <path d="M3 12h4l3-8 4 16 3-8h4" />
+            </svg>
+            Estimated travel: 2h 10m · 38 km
+            <button
+              class="btn btn-ghost btn-sm"
+              style="padding: 4px 8px"
+              onclick="showToast('Route optimized — saved 15 minutes')"
+            >
+              Optimize route
+            </button>
+          </div>
+        </div>
+
+        <div class="day-tabs">
+          <button class="day-tab active" onclick="showDay(1, this)">
+            Day 1 · Srinagar
+          </button>
+          <button class="day-tab" onclick="showDay(2, this)">
+            Day 2 · Gulmarg
+          </button>
+          <button class="day-tab" onclick="showDay(3, this)">
+            Day 3 · Pahalgam
+          </button>
+        </div>
+
+        <div class="itin-main">
+          <div class="itin-timeline">
+            <!-- DAY 1 -->
+            <div class="day-panel active" id="day-1">
+              <div class="time-block">
+                <div class="time-block-label">
+                  <span class="time-dot"></span>Morning
+                </div>
+                <div
+                  class="dropzone"
+                  ondrop="handleDrop(event, this)"
+                  ondragover="allowDrop(event)"
+                  ondragleave="dragLeave(event)"
+                >
+                  <div
+                    class="itin-item"
+                    draggable="true"
+                    ondragstart="dragStart(event)"
+                  >
+                    <div class="ico">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="2"
+                      >
+                        <path
+                          d="M2 12h20M12 2c3 3 3 17 0 20M12 2c-3 3-3 17 0 20"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <h5>Shikara ride, Dal Lake</h5>
+                      <p>7:30 AM · 1.5 hrs</p>
+                    </div>
+                  </div>
+                  <div
+                    class="itin-item"
+                    draggable="true"
+                    ondragstart="dragStart(event)"
+                  >
+                    <div class="ico">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="var(--accent2)"
+                        stroke-width="2"
+                      >
+                        <path
+                          d="M3 11h18M6 11V7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4M5 11l1 9h12l1-9"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <h5>Breakfast café</h5>
+                      <p>9:15 AM · Boulevard Rd</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="time-block">
+                <div class="time-block-label">
+                  <span class="time-dot"></span>Afternoon
+                </div>
+                <div
+                  class="dropzone"
+                  ondrop="handleDrop(event, this)"
+                  ondragover="allowDrop(event)"
+                  ondragleave="dragLeave(event)"
+                >
+                  <div
+                    class="itin-item"
+                    draggable="true"
+                    ondragstart="dragStart(event)"
+                  >
+                    <div class="ico">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="var(--secondary)"
+                        stroke-width="2"
+                      >
+                        <path d="M12 2 2 22h20L12 2z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h5>Shalimar / Botanical Gardens</h5>
+                      <p>12:30 PM · 2 hrs</p>
+                    </div>
+                  </div>
+                  <div
+                    class="itin-item"
+                    draggable="true"
+                    ondragstart="dragStart(event)"
+                  >
+                    <div class="ico">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="var(--accent1)"
+                        stroke-width="2"
+                      >
+                        <path
+                          d="M3 9l9-6 9 6v11a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <h5>Houseboat check-in</h5>
+                      <p>3:00 PM</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="time-block">
+                <div class="time-block-label">
+                  <span
+                    class="time-dot"
+                    style="background: var(--accent1)"
+                  ></span
+                  >Evening
+                </div>
+                <div
+                  class="dropzone"
+                  ondrop="handleDrop(event, this)"
+                  ondragover="allowDrop(event)"
+                  ondragleave="dragLeave(event)"
+                >
+                  <div
+                    class="itin-item"
+                    draggable="true"
+                    ondragstart="dragStart(event)"
+                  >
+                    <div class="ico">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="2"
+                      >
+                        <path
+                          d="M12 21s-7-6.5-7-11a7 7 0 1 1 14 0c0 4.5-7 11-7 11z"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <h5>Boulevard Road stroll</h5>
+                      <p>6:30 PM</p>
+                    </div>
+                  </div>
+                  <div
+                    class="itin-item"
+                    draggable="true"
+                    ondragstart="dragStart(event)"
+                  >
+                    <div class="ico">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="var(--accent2)"
+                        stroke-width="2"
+                      >
+                        <circle cx="12" cy="12" r="9" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h5>Wazwan-friendly dinner</h5>
+                      <p>8:00 PM</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- DAY 2 -->
+            <div class="day-panel" id="day-2">
+              <div class="time-block">
+                <div class="time-block-label">
+                  <span class="time-dot"></span>Morning
+                </div>
+                <div
+                  class="dropzone"
+                  ondrop="handleDrop(event, this)"
+                  ondragover="allowDrop(event)"
+                  ondragleave="dragLeave(event)"
+                >
+                  <div
+                    class="itin-item"
+                    draggable="true"
+                    ondragstart="dragStart(event)"
+                  >
+                    <div class="ico">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="2"
+                      >
+                        <path d="M4 19h16M6 19V9l6-5 6 5v10" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h5>Drive to Gulmarg</h5>
+                      <p>7:00 AM · 1h 20m</p>
+                    </div>
+                  </div>
+                  <div
+                    class="itin-item"
+                    draggable="true"
+                    ondragstart="dragStart(event)"
+                  >
+                    <div class="ico">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="var(--secondary)"
+                        stroke-width="2"
+                      >
+                        <path d="M2 20l6-14 4 8 3-5 7 11z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h5>Gondola Phase 1</h5>
+                      <p>9:30 AM</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="time-block">
+                <div class="time-block-label">
+                  <span class="time-dot"></span>Afternoon
+                </div>
+                <div
+                  class="dropzone"
+                  ondrop="handleDrop(event, this)"
+                  ondragover="allowDrop(event)"
+                  ondragleave="dragLeave(event)"
+                >
+                  <div class="dropzone-empty">Drop a saved place here</div>
+                </div>
+              </div>
+              <div class="time-block">
+                <div class="time-block-label">
+                  <span
+                    class="time-dot"
+                    style="background: var(--accent1)"
+                  ></span
+                  >Evening
+                </div>
+                <div
+                  class="dropzone"
+                  ondrop="handleDrop(event, this)"
+                  ondragover="allowDrop(event)"
+                  ondragleave="dragLeave(event)"
+                >
+                  <div
+                    class="itin-item"
+                    draggable="true"
+                    ondragstart="dragStart(event)"
+                  >
+                    <div class="ico">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="var(--accent2)"
+                        stroke-width="2"
+                      >
+                        <path
+                          d="M3 9l9-6 9 6v11a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <h5>Return to Srinagar</h5>
+                      <p>4:00 PM</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- DAY 3 -->
+            <div class="day-panel" id="day-3">
+              <div class="time-block">
+                <div class="time-block-label">
+                  <span class="time-dot"></span>Morning
+                </div>
+                <div
+                  class="dropzone"
+                  ondrop="handleDrop(event, this)"
+                  ondragover="allowDrop(event)"
+                  ondragleave="dragLeave(event)"
+                >
+                  <div
+                    class="itin-item"
+                    draggable="true"
+                    ondragstart="dragStart(event)"
+                  >
+                    <div class="ico">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="2"
+                      >
+                        <path d="M4 19h16M6 19V9l6-5 6 5v10" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h5>Drive to Pahalgam</h5>
+                      <p>7:30 AM · 2h</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="time-block">
+                <div class="time-block-label">
+                  <span class="time-dot"></span>Afternoon
+                </div>
+                <div
+                  class="dropzone"
+                  ondrop="handleDrop(event, this)"
+                  ondragover="allowDrop(event)"
+                  ondragleave="dragLeave(event)"
+                >
+                  <div
+                    class="itin-item"
+                    draggable="true"
+                    ondragstart="dragStart(event)"
+                  >
+                    <div class="ico">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="var(--secondary)"
+                        stroke-width="2"
+                      >
+                        <path d="M12 2 2 22h20L12 2z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h5>Betaab Valley</h5>
+                      <p>12:00 PM</p>
+                    </div>
+                  </div>
+                  <div
+                    class="itin-item"
+                    draggable="true"
+                    ondragstart="dragStart(event)"
+                  >
+                    <div class="ico">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="var(--accent2)"
+                        stroke-width="2"
+                      >
+                        <path d="M4 19h16M6 19V9l6-5 6 5v10" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h5>Local market shopping</h5>
+                      <p>3:00 PM</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="time-block">
+                <div class="time-block-label">
+                  <span
+                    class="time-dot"
+                    style="background: var(--accent1)"
+                  ></span
+                  >Evening
+                </div>
+                <div
+                  class="dropzone"
+                  ondrop="handleDrop(event, this)"
+                  ondragover="allowDrop(event)"
+                  ondragleave="dragLeave(event)"
+                >
+                  <div class="dropzone-empty">Drop a saved place here</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="itin-drawer">
+            <h3>Saved places</h3>
+            <p class="help">
+              <span class="help-drag">Drag any card into a time slot.</span>
+              <span class="help-tap">Tap + to add a card to a time slot.</span>
+            </p>
+            <div
+              class="drawer-card"
+              draggable="true"
+              ondragstart="dragStart(event)"
+            >
+              <div
+                class="drawer-thumb"
+                style="background: linear-gradient(135deg, #5b7cff, #2fd6c9)"
+              ></div>
+              <div>
+                <h5>Sunset viewpoint café</h5>
+                <p>Scenic · 4.7★</p>
+              </div>
+              <button
+                class="drawer-add"
+                aria-label="Add to itinerary"
+                onclick="openSlotPicker(this)"
+              >
+                +
+              </button>
+            </div>
+            <div
+              class="drawer-card"
+              draggable="true"
+              ondragstart="dragStart(event)"
+            >
+              <div
+                class="drawer-thumb"
+                style="background: linear-gradient(135deg, #ff6b6b, #ffc857)"
+              ></div>
+              <div>
+                <h5>Wular Lake viewpoint</h5>
+                <p>Lakes · 4.5★</p>
+              </div>
+              <button
+                class="drawer-add"
+                aria-label="Add to itinerary"
+                onclick="openSlotPicker(this)"
+              >
+                +
+              </button>
+            </div>
+            <div
+              class="drawer-card"
+              draggable="true"
+              ondragstart="dragStart(event)"
+            >
+              <div
+                class="drawer-thumb"
+                style="background: linear-gradient(135deg, #2fd6c9, #5b7cff)"
+              ></div>
+              <div>
+                <h5>Kahwa &amp; kebab stop</h5>
+                <p>Food · 4.9★</p>
+              </div>
+              <button
+                class="drawer-add"
+                aria-label="Add to itinerary"
+                onclick="openSlotPicker(this)"
+              >
+                +
+              </button>
+            </div>
+            <div
+              class="drawer-card"
+              draggable="true"
+              ondragstart="dragStart(event)"
+            >
+              <div
+                class="drawer-thumb"
+                style="background: linear-gradient(135deg, #ffc857, #ff6b6b)"
+              ></div>
+              <div>
+                <h5>Pahalgam river walk</h5>
+                <p>Nature · 4.6★</p>
+              </div>
+              <button
+                class="drawer-add"
+                aria-label="Add to itinerary"
+                onclick="openSlotPicker(this)"
+              >
+                +
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SCREEN — LOGIN / SIGN UP -->
+    <!-- ============================================================ -->
+    <section class="screen" id="screen-login">
+      <div class="auth-shell">
+        <div class="topnav wrap" style="padding-bottom: 0">
+          <div class="logo">
+            <div class="logo-mark">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z"
+                  fill="white"
+                />
+              </svg>
+            </div>
+            Tandem
+          </div>
+          <button class="btn btn-ghost" onclick="showScreen('landing')">
+            Back to home
+          </button>
+        </div>
+        <div class="auth-body">
+          <div class="card auth-card">
+            <div class="auth-toggle">
+              <button id="authTabLogin" onclick="setAuthMode('login')">
+                Log in
+              </button>
+              <button
+                id="authTabSignup"
+                class="active"
+                onclick="setAuthMode('signup')"
+              >
+                Sign up
+              </button>
+            </div>
+            <h3 id="authTitle">Join the crew</h3>
+            <p class="help" id="authHelp">
+              We'll never spam — only trip magic.
+            </p>
+
+            <button class="oauth-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24">
+                <path
+                  fill="#4285F4"
+                  d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.07 5.07 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"
+                />
+                <path
+                  fill="#34A853"
+                  d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.99.66-2.25 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.85A11 11 0 0 0 12 23z"
+                />
+                <path
+                  fill="#FBBC05"
+                  d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.05H2.18a11 11 0 0 0 0 9.9z"
+                />
+                <path
+                  fill="#EA4335"
+                  d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1a11 11 0 0 0-9.82 6.05l3.66 2.85c.87-2.6 3.3-4.52 6.16-4.52z"
+                />
+              </svg>
+              Continue with Google
+            </button>
+
+            <div class="auth-divider">or</div>
+
+            <div id="authNameField" style="display: block">
+              <label class="field-label">Full name</label>
+              <input class="field-input" placeholder="Your name" />
+            </div>
+            <label class="field-label">Email</label>
+            <input class="field-input" placeholder="name@email.com" />
+            <label class="field-label">Password</label>
+            <input class="field-input" type="password" placeholder="••••••••" />
+
+            <button
+              class="btn btn-primary"
+              id="authSubmitBtn"
+              style="width: 100%; justify-content: center; margin-top: 6px"
+              onclick="submitAuth()"
+            >
+              Create account
+            </button>
+            <div class="auth-switch" id="authSwitchText">
+              Already have an account?
+              <button onclick="setAuthMode('login')">Log in</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SCREEN — ONBOARDING -->
+    <!-- ============================================================ -->
+    <section class="screen" id="screen-onboarding">
+      <div class="onboard-shell">
+        <div class="topnav wrap" style="padding-bottom: 0">
+          <div class="logo">
+            <div class="logo-mark">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z"
+                  fill="white"
+                />
+              </svg>
+            </div>
+            Tandem
+          </div>
+          <button class="btn btn-ghost" onclick="finishOnboarding()">
+            Skip for now
+          </button>
+        </div>
+        <div class="onboard-body">
+          <div class="card onboard-card">
+            <h3 style="font-size: 24px; margin-bottom: 8px">
+              What kind of trips do you love?
+            </h3>
+            <p
+              class="help"
+              style="
+                color: var(--slate);
+                font-size: 14.5px;
+                margin-bottom: 22px;
+              "
+            >
+              This shapes the recommendations Tandem shows you first.
+            </p>
+            <label class="field-label"
+              >Pick a few — you can change these anytime</label
+            >
+            <div class="chip-row">
+              <span class="chip active" onclick="toggleChip(this)">Scenic</span>
+              <span class="chip active" onclick="toggleChip(this)">Cafés</span>
+              <span class="chip" onclick="toggleChip(this)">Local culture</span>
+              <span class="chip" onclick="toggleChip(this)">Adventure</span>
+              <span class="chip" onclick="toggleChip(this)">Shopping</span>
+              <span class="chip" onclick="toggleChip(this)">Slow travel</span>
+            </div>
+            <div class="slider-block">
+              <label class="field-label">Budget</label>
+              <input type="range" min="1" max="4" value="2" />
+              <div class="slider-ends">
+                <span>₹ Budget</span><span>₹₹₹₹ Luxury</span>
+              </div>
+            </div>
+            <div class="slider-block">
+              <label class="field-label">Day pace</label>
+              <input type="range" min="1" max="4" value="2" />
+              <div class="slider-ends">
+                <span>Chill</span><span>Packed</span>
+              </div>
+            </div>
+            <div class="toggle-row">
+              <span style="font-size: 14px; font-weight: 500"
+                >Avoid long drives</span
+              >
+              <div class="toggle" onclick="this.classList.toggle('on')"></div>
+            </div>
+            <div class="toggle-row">
+              <span style="font-size: 14px; font-weight: 500"
+                >Prefer vegetarian options</span
+              >
+              <div class="toggle" onclick="this.classList.toggle('on')"></div>
+            </div>
+            <button
+              class="btn btn-primary"
+              style="width: 100%; justify-content: center; margin-top: 8px"
+              onclick="finishOnboarding()"
+            >
+              Continue
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SCREEN — PLACE DETAILS -->
+    <!-- ============================================================ -->
+    <section class="screen" id="screen-placedetails">
+      <div
+        class="details-hero"
+        id="detailsHero"
+        style="background: linear-gradient(160deg, #4763db, #2fd6c9)"
+      >
+        <div class="details-hero-inner">
+          <div style="display: flex; justify-content: space-between">
+            <button class="circle-btn" onclick="showScreen('explore')">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                stroke-width="2.4"
+              >
+                <path d="M15 18l-6-6 6-6" />
+              </svg>
+            </button>
+            <div style="display: flex; gap: 8px">
+              <button
+                class="circle-btn"
+                id="detailsSaveBtnCircle"
+                onclick="detailsToggleSave()"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2.2"
+                >
+                  <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+                </svg>
+              </button>
+              <button class="circle-btn" onclick="openModal('share')">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2.2"
+                >
+                  <circle cx="18" cy="5" r="2.5" />
+                  <circle cx="6" cy="12" r="2.5" />
+                  <circle cx="18" cy="19" r="2.5" />
+                  <path d="M8.2 10.8l7.6-4.2M8.2 13.2l7.6 4.2" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div>
+            <h1 id="detailsName" style="color: white; font-size: 26px">
+              Dal Lake Shikara Ride
+            </h1>
+            <div class="details-carousel">
+              <span class="carousel-dot active"></span
+              ><span class="carousel-dot"></span
+              ><span class="carousel-dot"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="wrap details-body">
+        <div class="details-grid">
+          <div>
+            <p id="detailsMeta" style="color: var(--slate); font-weight: 600">
+              4.8 ★ · Scenic · Lakes
+            </p>
+            <h4 style="font-size: 15px; margin-top: 22px; margin-bottom: 6px">
+              Highlights
+            </h4>
+            <div class="highlight-row" id="detailsHighlights"></div>
+            <h4 style="font-size: 15px; margin-bottom: 6px">Getting there</h4>
+            <p
+              id="detailsDistance"
+              style="color: var(--slate); margin-bottom: 20px"
+            >
+              12 min from your houseboat
+            </p>
+            <p
+              style="
+                font-size: 11px;
+                font-weight: 700;
+                color: var(--slate-light);
+                margin-bottom: 10px;
+              "
+            >
+              Drag it into your itinerary anytime — or add it directly:
+            </p>
+            <div class="day-pick-row">
+              <button
+                class="btn btn-secondary btn-sm"
+                onclick="addPlaceToDay(1)"
+              >
+                Add to Day 1
+              </button>
+              <button
+                class="btn btn-secondary btn-sm"
+                onclick="addPlaceToDay(2)"
+              >
+                Add to Day 2
+              </button>
+              <button
+                class="btn btn-secondary btn-sm"
+                onclick="addPlaceToDay(3)"
+              >
+                Add to Day 3
+              </button>
+            </div>
+          </div>
+          <div>
+            <div class="mini-map">
+              <div class="pin"><span>•</span></div>
+            </div>
+            <button
+              class="btn btn-primary"
+              id="detailsSaveBtn"
+              style="width: 100%; justify-content: center"
+              onclick="detailsToggleSave()"
+            >
+              Add to collection
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SCREEN — CREW / COLLABORATION -->
+    <!-- ============================================================ -->
+    <section class="screen" id="screen-crew">
+      <div class="crew-layout">
+        <div class="crew-sidebar">
+          <button
+            class="backlink"
+            style="color: var(--slate); margin-bottom: 18px"
+            onclick="showScreen('dashboard')"
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="var(--slate)"
+              stroke-width="2.4"
+            >
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+            Dashboard
+          </button>
+          <h4 style="font-size: 14px; margin-bottom: 12px">Crew · 4</h4>
+          <div class="member-row">
+            <div
+              class="avatar"
+              style="
+                background: var(--primary);
+                width: 32px;
+                height: 32px;
+                font-size: 12px;
+              "
+            >
+              YOU
+            </div>
+            <span style="font-size: 13.5px; font-weight: 600">You</span
+            ><span class="role">Owner</span>
+          </div>
+          <div class="member-row">
+            <div
+              class="avatar"
+              style="
+                background: var(--accent1);
+                width: 32px;
+                height: 32px;
+                font-size: 12px;
+              "
+            >
+              RA
+            </div>
+            <span style="font-size: 13.5px; font-weight: 600">Riya</span
+            ><span class="role">Editor</span>
+          </div>
+          <div class="member-row">
+            <div
+              class="avatar"
+              style="
+                background: var(--secondary);
+                width: 32px;
+                height: 32px;
+                font-size: 12px;
+              "
+            >
+              NM
+            </div>
+            <span style="font-size: 13.5px; font-weight: 600">Nisha</span
+            ><span class="role">Editor</span>
+          </div>
+          <div class="member-row">
+            <div
+              class="avatar"
+              style="
+                background: var(--accent2);
+                color: var(--ink);
+                width: 32px;
+                height: 32px;
+                font-size: 12px;
+              "
+            >
+              DK
+            </div>
+            <span style="font-size: 13.5px; font-weight: 600">Devan</span
+            ><span class="role">View</span>
+          </div>
+          <button
+            class="btn btn-secondary btn-sm"
+            style="width: 100%; justify-content: center; margin-top: 16px"
+            onclick="openModal('invite')"
+          >
+            Invite more
+          </button>
+        </div>
+        <div class="crew-main">
+          <div class="crew-topbar">
+            <strong style="font-family: &quot;Poppins&quot;; font-size: 15px"
+              >Crew chat</strong
+            >
+          </div>
+          <div class="card vote-card">
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              "
+            >
+              <strong style="font-size: 14.5px">Gulmarg Gondola</strong>
+              <span class="mini-tag"
+                >Ask the crew: gondola day or café day?</span
+              >
+            </div>
+            <div class="vote-btns">
+              <button
+                class="vote-btn"
+                id="voteWant"
+                onclick="castVote('want', this)"
+              >
+                Want · 12
+              </button>
+              <button
+                class="vote-btn"
+                id="voteSkip"
+                onclick="castVote('skip', this)"
+              >
+                Skip · 1
+              </button>
+              <button
+                class="vote-btn active"
+                id="voteMustdo"
+                onclick="castVote('mustdo', this)"
+              >
+                Must-do · 7
+              </button>
+            </div>
+          </div>
+          <span class="mention-chip" onclick="mentionAssistant()"
+            >🤖 @Trip Assistant · suggest photo spots</span
+          >
+          <div class="chat-scroll" id="chatScroll">
+            <div class="msg-row">
+              <div
+                class="avatar"
+                style="
+                  background: var(--accent1);
+                  width: 30px;
+                  height: 30px;
+                  font-size: 11px;
+                "
+              >
+                RA
+              </div>
+              <div>
+                <div class="who">Riya</div>
+                <div class="bubble">
+                  gondola day for sure, weather looks perfect on the 15th
+                </div>
+              </div>
+            </div>
+            <div class="msg-row">
+              <div
+                class="avatar"
+                style="
+                  background: var(--secondary);
+                  width: 30px;
+                  height: 30px;
+                  font-size: 11px;
+                "
+              >
+                NM
+              </div>
+              <div>
+                <div class="who">Nisha</div>
+                <div class="bubble">agreed, I voted must-do 👆</div>
+              </div>
+            </div>
+            <div class="msg-row mine">
+              <div
+                class="avatar"
+                style="
+                  background: var(--primary);
+                  width: 30px;
+                  height: 30px;
+                  font-size: 11px;
+                "
+              >
+                YOU
+              </div>
+              <div>
+                <div class="who">You</div>
+                <div class="bubble">great, locking it into Day 2 morning</div>
+              </div>
+            </div>
+          </div>
+          <div class="chat-input-row">
+            <input
+              id="chatInput"
+              placeholder="Message the crew…"
+              onkeydown="chatKeydown(event)"
+            />
+            <button class="btn btn-primary btn-sm" onclick="sendChatMessage()">
+              Send
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SCREEN — BOOKINGS & DOCUMENTS -->
+    <!-- ============================================================ -->
+    <section class="screen" id="screen-bookings">
+      <div class="itin-topbar">
+        <div style="display: flex; align-items: center; gap: 12px">
+          <button
+            class="backlink"
+            style="color: var(--slate)"
+            onclick="showScreen('dashboard')"
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="var(--slate)"
+              stroke-width="2.4"
+            >
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </button>
+          <strong style="font-family: &quot;Poppins&quot;; font-size: 16px"
+            >Bookings &amp; Documents</strong
+          >
+        </div>
+      </div>
+      <div class="book-tabs">
+        <button class="book-tab active" onclick="showBookTab('flights', this)">
+          Flights
+        </button>
+        <button class="book-tab" onclick="showBookTab('stays', this)">
+          Stays
+        </button>
+        <button class="book-tab" onclick="showBookTab('transport', this)">
+          Transport
+        </button>
+        <button class="book-tab" onclick="showBookTab('activities', this)">
+          Activities
+        </button>
+        <button class="book-tab" onclick="showBookTab('receipts', this)">
+          Receipts
+        </button>
+      </div>
+      <div class="wrap">
+        <div class="book-panel active" id="book-flights">
+          <div class="card add-inline-form" id="form-flights">
+            <div class="row">
+              <input
+                class="field-input b-provider"
+                placeholder="Airline"
+                style="margin: 0"
+              /><input
+                class="field-input b-date"
+                placeholder="Date &amp; time"
+                style="margin: 0"
+              /><input
+                class="field-input b-ref"
+                placeholder="Reference"
+                style="margin: 0"
+              />
+            </div>
+            <button
+              class="btn btn-primary btn-sm"
+              onclick="addBookingCard('flightsList', 'form-flights')"
+            >
+              Add booking
+            </button>
+          </div>
+          <div id="flightsList">
+            <div class="card booking-card">
+              <div class="booking-icon">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="var(--primary)"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M2 16l8-3 4-9 2 1-2 8 6-2 1 2-6 3 1 6-2 1-3-6-6 3z"
+                  />
+                </svg>
+              </div>
+              <div class="booking-fields">
+                <div>
+                  <div class="f-lbl">Airline</div>
+                  <div class="f-val">IndiGo 6E-204</div>
+                </div>
+                <div>
+                  <div class="f-lbl">Departs</div>
+                  <div class="f-val">14 Oct · 6:40 AM</div>
+                </div>
+                <div>
+                  <div class="f-lbl">Reference</div>
+                  <div class="f-val">PNR X7K2Q9</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            class="btn btn-secondary btn-sm"
+            onclick="toggleAddBooking('form-flights')"
+          >
+            + Add booking
+          </button>
+        </div>
+        <div class="book-panel" id="book-stays">
+          <div class="card add-inline-form" id="form-stays">
+            <div class="row">
+              <input
+                class="field-input b-provider"
+                placeholder="Property name"
+                style="margin: 0"
+              /><input
+                class="field-input b-date"
+                placeholder="Check-in / out"
+                style="margin: 0"
+              /><input
+                class="field-input b-ref"
+                placeholder="Reference"
+                style="margin: 0"
+              />
+            </div>
+            <button
+              class="btn btn-primary btn-sm"
+              onclick="addBookingCard('staysList', 'form-stays')"
+            >
+              Add booking
+            </button>
+          </div>
+          <div id="staysList">
+            <div class="card booking-card">
+              <div class="booking-icon">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="var(--secondary)"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M3 9l9-6 9 6v11a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"
+                  />
+                </svg>
+              </div>
+              <div class="booking-fields">
+                <div>
+                  <div class="f-lbl">Property</div>
+                  <div class="f-val">Dal Lake Houseboat</div>
+                </div>
+                <div>
+                  <div class="f-lbl">Dates</div>
+                  <div class="f-val">14–15 Oct</div>
+                </div>
+                <div>
+                  <div class="f-lbl">Reference</div>
+                  <div class="f-val">BK-88213</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            class="btn btn-secondary btn-sm"
+            onclick="toggleAddBooking('form-stays')"
+          >
+            + Add booking
+          </button>
+        </div>
+        <div class="book-panel" id="book-transport">
+          <div class="card add-inline-form" id="form-transport">
+            <div class="row">
+              <input
+                class="field-input b-provider"
+                placeholder="Provider"
+                style="margin: 0"
+              /><input
+                class="field-input b-date"
+                placeholder="Date &amp; time"
+                style="margin: 0"
+              /><input
+                class="field-input b-ref"
+                placeholder="Reference"
+                style="margin: 0"
+              />
+            </div>
+            <button
+              class="btn btn-primary btn-sm"
+              onclick="addBookingCard('transportList', 'form-transport')"
+            >
+              Add booking
+            </button>
+          </div>
+          <div id="transportList"></div>
+          <button
+            class="btn btn-secondary btn-sm"
+            onclick="toggleAddBooking('form-transport')"
+          >
+            + Add booking
+          </button>
+        </div>
+        <div class="book-panel" id="book-activities">
+          <div class="card add-inline-form" id="form-activities">
+            <div class="row">
+              <input
+                class="field-input b-provider"
+                placeholder="Activity"
+                style="margin: 0"
+              /><input
+                class="field-input b-date"
+                placeholder="Date &amp; time"
+                style="margin: 0"
+              /><input
+                class="field-input b-ref"
+                placeholder="Reference"
+                style="margin: 0"
+              />
+            </div>
+            <button
+              class="btn btn-primary btn-sm"
+              onclick="addBookingCard('activitiesList', 'form-activities')"
+            >
+              Add booking
+            </button>
+          </div>
+          <div id="activitiesList">
+            <div class="card booking-card">
+              <div class="booking-icon">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="var(--accent1)"
+                  stroke-width="2"
+                >
+                  <path d="M2 20l6-14 4 8 3-5 7 11z" />
+                </svg>
+              </div>
+              <div class="booking-fields">
+                <div>
+                  <div class="f-lbl">Activity</div>
+                  <div class="f-val">Gulmarg Gondola Phase 2</div>
+                </div>
+                <div>
+                  <div class="f-lbl">Date</div>
+                  <div class="f-val">15 Oct · 10:00 AM</div>
+                </div>
+                <div>
+                  <div class="f-lbl">Reference</div>
+                  <div class="f-val">GND-4471</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            class="btn btn-secondary btn-sm"
+            onclick="toggleAddBooking('form-activities')"
+          >
+            + Add booking
+          </button>
+        </div>
+        <div class="book-panel" id="book-receipts">
+          <div class="upload-zone" onclick="triggerUpload()">
+            <svg
+              width="26"
+              height="26"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="var(--slate)"
+              stroke-width="2"
+              style="margin-bottom: 10px"
+            >
+              <path d="M12 16V4M6 10l6-6 6 6" />
+              <path d="M4 20h16" />
+            </svg>
+            <div style="font-weight: 600; font-size: 14px; color: var(--ink)">
+              Drop a confirmation here, or click to choose a file
+            </div>
+            <div style="font-size: 12.5px; margin-top: 4px">PDF or image</div>
+          </div>
+          <input
+            type="file"
+            id="fileInput"
+            style="display: none"
+            onchange="handleFileSelected(event)"
+          />
+          <div id="receiptsList" style="margin-top: 16px"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SCREEN — COLLECTIONS -->
+    <!-- ============================================================ -->
+    <section class="screen" id="screen-collections">
+      <div class="itin-topbar">
+        <div style="display: flex; align-items: center; gap: 12px">
+          <button
+            class="backlink"
+            style="color: var(--slate)"
+            onclick="showScreen('dashboard')"
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="var(--slate)"
+              stroke-width="2.4"
+            >
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </button>
+          <strong style="font-family: &quot;Poppins&quot;; font-size: 16px"
+            >Collections</strong
+          >
+        </div>
+        <button class="btn btn-primary btn-sm" onclick="addCollection()">
+          + New collection
+        </button>
+      </div>
+      <div class="wrap" style="padding: 30px 40px 100px">
+        <div
+          class="feature-grid"
+          id="collectionsGrid"
+          style="grid-template-columns: repeat(3, 1fr)"
+        >
+          <div>
+            <div
+              class="card collection-card"
+              onclick="toggleCollection(this, 'all')"
+            >
+              <div
+                class="collection-cover"
+                style="background: linear-gradient(135deg, #ff6b6b, #ffc857)"
+              ></div>
+              <h4 style="font-size: 15px">Kashmir Must-dos</h4>
+              <p
+                style="font-size: 12.5px; color: var(--slate); margin-top: 4px"
+              >
+                5 saved
+              </p>
+            </div>
+            <div class="collection-body-list"></div>
+          </div>
+          <div>
+            <div
+              class="card collection-card"
+              onclick="toggleCollection(this, 'Food')"
+            >
+              <div
+                class="collection-cover"
+                style="background: linear-gradient(135deg, #2fd6c9, #5b7cff)"
+              ></div>
+              <h4 style="font-size: 15px">Food to try</h4>
+              <p
+                style="font-size: 12.5px; color: var(--slate); margin-top: 4px"
+              >
+                1 saved
+              </p>
+            </div>
+            <div class="collection-body-list"></div>
+          </div>
+          <div
+            id="addCollectionCard"
+            class="card collection-card"
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              flex-direction: column;
+              border: 2px dashed var(--cloud-dark);
+              box-shadow: none;
+              background: transparent;
+            "
+            onclick="addCollection()"
+          >
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="var(--slate-light)"
+              stroke-width="2"
+            >
+              <path d="M12 5v14M5 12h14" />
+            </svg>
+            <p
+              style="
+                font-size: 13px;
+                color: var(--slate-light);
+                margin-top: 8px;
+              "
+            >
+              New collection
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SCREEN — STATIC PAGES (About / Privacy / Terms / Contact) -->
+    <!-- ============================================================ -->
+    <section class="screen" id="screen-static">
+      <div class="topnav wrap">
+        <div class="logo">
+          <div class="logo-mark">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+          Tandem
+        </div>
+        <button class="btn btn-ghost" onclick="showScreen('landing')">
+          Back to home
+        </button>
+      </div>
+      <div class="wrap" style="max-width: 720px; padding: 20px 40px 100px">
+        <h1 id="staticTitle">About Tandem</h1>
+        <div class="static-body" id="staticBody"></div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- MODAL -->
+    <!-- ============================================================ -->
+    <div
+      class="modal-overlay"
+      id="modalOverlay"
+      onclick="if (event.target === this) closeModal();"
+    >
+      <div class="modal-box" id="modalBox"></div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
